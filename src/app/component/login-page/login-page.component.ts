@@ -32,10 +32,8 @@ export class LoginPageComponent implements OnInit {
 
   onClick(): void {
     this.authService.login(this.loginForm.getRawValue()).subscribe(res => {
-      console.log(res);
       if (res.headers.get('authorization')) {
-        console.log('yes');
-        this.authService.setToken(res.headers.get('authorization'));
+        this.authService.setToken(res.headers.get('authorization'), this.loginForm.getRawValue().username);
         this.router.navigate(['/profile']);
       }
     });

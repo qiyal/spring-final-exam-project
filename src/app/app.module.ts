@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {AuthService} from './service/auth.service';
 import { ProfilePageComponent } from './component/profile-page/profile-page.component';
+import {UserService} from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProfilePageComponent } from './component/profile-page/profile-page.comp
   ],
   providers: [
     BookService,
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

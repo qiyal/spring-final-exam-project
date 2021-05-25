@@ -1,0 +1,40 @@
+.flex-profile-info {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  //justify-content: space-between;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  margin-right: 100px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.profile-infos {
+  div {
+    margin-bottom: 20px;
+    font-weight: 600;
+
+    span {
+      font-weight: normal;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.roles {
+
+  span {
+    margin-right: 10px;
+  }
+}

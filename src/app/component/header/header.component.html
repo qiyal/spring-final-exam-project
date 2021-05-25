@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
   <a mat-button routerLink="/">Books</a>
+  <a mat-button routerLink="/profile">Profile</a>
   <span class="example-spacer"></span>
-  <a mat-flat-button routerLink="/login" *ngIf="isAuth()">Login</a>
-  <a mat-flat-button (click)="onLogout()" *ngIf="!isAuth()">Logout</a>
+  <a mat-flat-button routerLink="/login" *ngIf="!isAuth()">Login</a>
+  <a mat-flat-button (click)="onLogout()" *ngIf="isAuth()">Logout</a>
 </mat-toolbar>
