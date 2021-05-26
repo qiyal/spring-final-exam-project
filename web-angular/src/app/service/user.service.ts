@@ -14,4 +14,8 @@ export class UserService {
   getUserByUsername(username: string | null): Observable<User> {
     return this.http.get<User>(this.api + '?username=' + username);
   }
+
+  createUser(data: any): Observable<User> {
+    return this.http.post<User>(this.api + '/create', data);
+  }
 }

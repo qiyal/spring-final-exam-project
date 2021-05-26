@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div class="flex-center-center">
+
+    <h1 class="text-center">Registration</h1>
+
+    <div class="form-body">
+
+      <form [formGroup]="userForm" (ngSubmit)="onClick()">
+
+        <mat-form-field class="input-f">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username" placeholder="Username">
+
+          <mat-error *ngIf="username.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" placeholder="Password">
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Name">
+          <mat-error *ngIf="name.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Surname</mat-label>
+          <input type="text" matInput formControlName="surname" placeholder="Surname">
+          <mat-error *ngIf="surname.hasError('required')">
+            Surname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <button class="submit-btn" type="submit" mat-raised-button color="primary">Sign Up</button>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>

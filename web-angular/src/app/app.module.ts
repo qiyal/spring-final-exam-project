@@ -11,7 +11,7 @@ import { MainPageComponent } from './component/main-page/main-page.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {BookService} from './service/book.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginPageComponent } from './component/login-page/login-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,6 +19,11 @@ import {MatInputModule} from '@angular/material/input';
 import {AuthService} from './service/auth.service';
 import { ProfilePageComponent } from './component/profile-page/profile-page.component';
 import {UserService} from './service/user.service';
+import { BookDetailsPageComponent } from './component/book-details-page/book-details-page.component';
+import {TokenInterceptor} from './service/token.interceptor';
+import { RegistarationPageComponent } from './component/registaration-page/registaration-page.component';
+import { CartPageComponent } from './component/cart-page/cart-page.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ import {UserService} from './service/user.service';
     HeaderComponent,
     MainPageComponent,
     LoginPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    BookDetailsPageComponent,
+    RegistarationPageComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +47,18 @@ import {UserService} from './service/user.service';
     MatCardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [
     BookService,
     AuthService,
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

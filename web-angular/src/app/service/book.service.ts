@@ -7,10 +7,16 @@ import {Book} from '../object/book';
 export class BookService {
   api = '/books';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+  ) {}
 
   public getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.api + '/all');
+  }
+
+  public getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(this.api + '/' + id);
   }
 
 

@@ -28,6 +28,7 @@ export class AuthService {
   }
 
   getToken(): string | null {
+    console.log(localStorage.getItem('Bearer'));
     return localStorage.getItem('Bearer') ? localStorage.getItem('Bearer') : '';
   }
 
