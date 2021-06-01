@@ -13,6 +13,7 @@ import {OrderService} from '../../service/order.service';
 export class ProfilePageComponent implements OnInit {
   user: User = new User(-1, '', '', '', '', '', []);
   orders: OrderDto[] = [];
+  newUsername = '';
 
   constructor(
     private userService: UserService,
@@ -39,4 +40,18 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  updateUsername(): void {
+    this.userService.updateUsername(this.newUsername, this.user.id).subscribe(res => {
+      if (res !== null) {
+        this.user.username = res.username;
+        this.newUsername = '';
+
+        this.authService.login({username: res.username, password: '123'}).subscribe(res2 => {
+          if (res2.headers.get('authorization')) {
+            this.authService.setToken(res2.headers.get('authorization'), res.username);
+          }
+        });
+      }
+    });
+  }
 }

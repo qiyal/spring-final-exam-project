@@ -49,16 +49,21 @@
 
 
   <div class="comment-form">
-    <button (click)="showCreateFormComment()" *ngIf="!showCommentForm">Add Comment</button>
+<!--    <button (click)="showCreateFormComment()" *ngIf="!showCommentForm">Add Comment</button>-->
+    <button (click)="showCreateFormComment()" *ngIf="!showCommentForm" style="display: block; margin: auto" mat-flat-button color="warn">Add Comment</button>
+
+
 
     <form [formGroup]="formComment" *ngIf="showCommentForm" (ngSubmit)="saveComment()">
       <mat-form-field class="example-full-width">
         <mat-label>Text: </mat-label>
         <textarea matInput placeholder="Text..." formControlName="text"></textarea>
       </mat-form-field>
-      <button type="submit">Submit</button>
+<!--      <button type="submit">Submit</button>-->
+      <button type="submit" mat-flat-button color="primary">Save</button>
+      <button type="submit" (click)="cancel()" *ngIf="showCommentForm" mat-flat-button color="warn">Cancel</button>
     </form>
-    <button type="submit" (click)="cancel()" *ngIf="showCommentForm">Cancel</button>
+<!--    <button type="submit" (click)="cancel()" *ngIf="showCommentForm">Cancel</button>-->
   </div>
 
 </div>

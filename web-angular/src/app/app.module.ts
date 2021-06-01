@@ -13,7 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {BookService} from './service/book.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginPageComponent } from './component/login-page/login-page.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {AuthService} from './service/auth.service';
@@ -48,7 +48,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule
   ],
   providers: [
     BookService,
